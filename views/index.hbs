@@ -9,24 +9,24 @@
 </head>
 <body>
     <div class="container mx-auto mt-5">
-        <form class="w-75 mx-auto bg-dark p-3 rounded">
+        <form action="cargar" method="post" class="w-75 mx-auto bg-dark p-3 rounded">
             <h1 class="text-light text-center mb-4 fw-bold">Ingresa un resultado</h1>
             <select class="form-select my-2" aria-label="Default select example">
                 <option selected>Seleccione un piloto</option>
                 {{#each pilotos}}
-                <option value=`{{@index}}`>{{this}}</option>
+                <option value=`{{@index}}` name="piloto">{{this}}</option>
                 {{/each}}
             </select>
             <select class="form-select my-2" aria-label="Default select example">
                 <option selected>Seleccione una carrera</option>
                 {{#each carreras}}
-                <option value=`{{@index}}`>{{this.circuito}}</option>
+                <option value=`{{@index}}` name="carrera">{{this.circuito}}</option>
                 {{/each}}
             </select>
             <select class="form-select my-2" aria-label="Default select example">
                 <option selected>Seleccione una posición de cierre</option>
                 {{#each pilotos}}
-                <option value=`{{@index}}`>{{suma @index}}</option>
+                <option value=`{{@index}}` name="posicion">{{suma @index}}</option>
                 {{/each}}
             </select>
             <div class="form-check">
