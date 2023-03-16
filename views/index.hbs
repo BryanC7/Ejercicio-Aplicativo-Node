@@ -1,6 +1,21 @@
 {{#>plantillaExterna}}
 
+{{!-- <h1>Pilotos</h1>
+<ul>
+    {{#each pilotos}}
+    <li>{{piloto1}} <br> {{piloto2}}</li>
+    {{/each}}
+</ul> --}}
 
-<p>AAA</p>
+<h2>Pilotlos 2</h2>
+
+{{#with pilotos}}
+{{#each this}}
+{{!-- assuming each object in pilotos has piloto1 and piloto2 properties --}}
+<p>{{piloto1}}</p>
+<p>{{piloto2}}</p>
+{{/each}}
+{{/with}}
+
 
 {{/plantillaExterna}}
