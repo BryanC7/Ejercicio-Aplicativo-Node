@@ -2,6 +2,18 @@
   "dependencies": {
     "bootstrap": "^5.2.3",
     "express": "^4.18.2",
+    "hbs": "^4.2.0",
+    "node": "^19.8.1",
     "nodemon": "^2.0.21"
-  }
+  },
+  "name": "m6_sprint-grupal",
+  "description": "```\r Andrea Jimenez (andreajimeneze)\r Esteban Zuñiga (Eban451)\r Juan Salas (JuanAndresSalas)\r Bryan Cabrera (BryanC7)\r ```",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
