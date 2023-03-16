@@ -3,10 +3,12 @@
 <h3>Prueba 3</h3>
 
 <h1>Circuitos</h1>
-<ul>
-    {{#each circuitos}}
-    <li>{{circuito}}</li>
-    {{/each}}
-</ul>
+
+<select id="circuitos-dropdown">
+  {{#each circuitos}}
+    <option value="{{circuito}}">{{circuito}}</option>
+  {{/each}}
+</select>
+
 
 {{/plantillaExterna}}
