@@ -45,8 +45,8 @@ app.get("/pruebas", (req, res) => {
             return {
                 id: pilot.id,
                 name: pilot.name,
-                minutes: Math.floor(Math.random() * 61) + 60, // generate random minutes between 60 and 120
-                position: Math.floor(Math.random() * 20) + 1, // generate random position between 1 and 20
+                minutes: "",
+                position:""
             };
         });
         return {
@@ -58,3 +58,6 @@ app.get("/pruebas", (req, res) => {
     res.render("pruebas", { circuitRaces });
 });
 
+
+
+// VIDEO PARA HACER TABLAS EDITABLES !!! https://www.youtube.com/watch?v=uPBxzvSGIiA //
