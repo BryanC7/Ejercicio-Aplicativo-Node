@@ -11,32 +11,29 @@
     <div class="container mx-auto mt-5">
         <form action="cargar" method="post" class="w-75 mx-auto bg-dark p-3 rounded">
             <h1 class="text-light text-center mb-4 fw-bold">Ingresa un resultado</h1>
-            <select class="form-select my-2" aria-label="Default select example">
-                <option selected>Seleccione un piloto</option>
+            <select class="form-select my-4" aria-label="Default select example" name="piloto">
+                <option selected disabled>Seleccione un piloto</option>
                 {{#each pilotos}}
-                <option value=`{{@index}}` name="piloto">{{this}}</option>
+                <option value"{{this}}">{{this}}</option>
                 {{/each}}
             </select>
-            <select class="form-select my-2" aria-label="Default select example">
-                <option selected>Seleccione una carrera</option>
+            <select class="form-select my-4" aria-label="Default select example" name="carrera">
+                <option selected disabled>Seleccione una carrera</option>
                 {{#each carreras}}
-                <option value=`{{@index}}` name="carrera">{{this.circuito}}</option>
+                <option value="{{this.circuito}}">{{this.circuito}}</option>
                 {{/each}}
             </select>
-            <select class="form-select my-2" aria-label="Default select example">
-                <option selected>Seleccione una posición de cierre</option>
+            <select class="form-select my-4" aria-label="Default select example" name="posicion">
+                <option selected disabled>Seleccione una posición de cierre</option>
                 {{#each pilotos}}
-                <option value=`{{@index}}` name="posicion">{{suma @index}}</option>
+                <option value="{{suma @index}}">{{suma @index}}</option>
                 {{/each}}
             </select>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label text-light" for="flexRadioDefault1">Problemas técnicos ó personales</label>
-            </div>
-            <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                <label class="form-check-label text-light" for="flexRadioDefault2">No</label>
-            </div>
+            <select class="form-select my-4" aria-label="Default select example" name="abandono">
+                <option selected disabled>¿El piloto abandonó la carrera?</option>
+                <option value="si">Si, por problemas técnicos o personales</option>
+                <option value="no">No, sigue en competencia</option>
+            </select>
             <div class="w-50 mx-auto">
                 <button type="submit" class="btn btn-warning w-100">Enviar resultados</button>
             </div>
