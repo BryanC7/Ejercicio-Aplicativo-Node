@@ -1,7 +1,7 @@
 {{#>plantillaExterna}}
 
 <h1>Formula 1</h1>
-<table>
+<table id="example">
     {{#each circuitRaces}}
     <tr>
         <td>{{this.name}}</td>
@@ -12,13 +12,16 @@
                     <th>Name</th>
                     <th>Minutes</th>
                     <th>Position</th>
+                    <th>Points</th>
                 </tr>
                 {{#each this.pilots}}
                 <tr>
                     <td>{{this.id}}</td>
                     <td>{{this.name}}</td>
-                    <td>{{this.minutes}}</td>
+                    <td><a href="#"></a>
+                        <input type="text" value="" class="grid-filter"id="id-filter"/></td>
                     <td>{{this.position}}</td>
+                    <td>{{this.points}}</td>
                 </tr>
                 {{/each}}
             </table>
@@ -29,4 +32,3 @@
 
 
 {{/plantillaExterna}}
-

@@ -1,0 +1,56 @@
+[
+    {
+        "id": 1,
+        "name": "Monaco Grand Prix",
+        "pilots": [
+            {
+                "id": 1,
+                "name": "Lewis Hamilton",
+                "minutos": 0,
+                "ubicación": 0,
+                "puntaje": 10
+            },
+            {
+                "id": 2,
+                "name": "Max Verstappen",
+                "puntaje": 25
+            },
+            {
+                "id": 3,
+                "name": "Valtteri Bottas",
+                "puntaje": 18
+            },
+            {
+                "id": 4,
+                "name": "Charles Leclerc",
+                "puntaje": 20
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Italian Grand Prix",
+        "pilots": [
+            {
+                "id": 1,
+                "name": "Lewis Hamilton",
+                "puntaje": 5
+            },
+            {
+                "id": 2,
+                "name": "Max Verstappen",
+                "puntaje": 10
+            },
+            {
+                "id": 3,
+                "name": "Valtteri Bottas",
+                "puntaje": 25
+            },
+            {
+                "id": 4,
+                "name": "Charles Leclerc",
+                "puntaje": 10
+            }
+        ]
+    }
+]

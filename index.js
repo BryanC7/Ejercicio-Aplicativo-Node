@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
     res.render('index', { pilotos });
 });
 
-// ESCUDERÍAS
+// CIRCUITOS
 
 const circuitos = require('./circuitos.json');
 
@@ -34,7 +34,7 @@ app.get("/carerras", (req, res) => {
 console.log(circuitos)
 
 
-// PRUEBA CON Otoros archivos:
+// PRUEBA CON Otros archivos:
 
 const circuits = require("./circuit.json");
 const pilots = require("./pilots.json");
@@ -46,7 +46,8 @@ app.get("/pruebas", (req, res) => {
                 id: pilot.id,
                 name: pilot.name,
                 minutes: "",
-                position:""
+                position:"",
+                points: ""
             };
         });
         return {
@@ -58,6 +59,21 @@ app.get("/pruebas", (req, res) => {
     res.render("pruebas", { circuitRaces });
 });
 
+// "SUMA valores"
 
+// const combinados = require("./combinados.json");
 
-// VIDEO PARA HACER TABLAS EDITABLES !!! https://www.youtube.com/watch?v=uPBxzvSGIiA //
+// const scores = {};
+
+// combinados.forEach((race) => {
+//     race.pilots.forEach((pilot) => {
+//         if (scores[pilot.id]) {
+//             scores[pilot.id] += pilot.puntaje;
+//         } else {
+//             scores[pilot.id] = pilot.puntaje;
+//         }
+//     });
+// });
+
+// console.log(scores);
+
