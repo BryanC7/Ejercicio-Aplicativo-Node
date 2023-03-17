@@ -1,0 +1,31 @@
+{{#>plantillaExterna}}
+
+<h1>Formula 1</h1>
+<table>
+    {{#each circuitRaces}}
+    <tr>
+        <td>{{this.name}}</td>
+        <td>
+            <table>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Minutes</th>
+                    <th>Position</th>
+                </tr>
+                {{#each this.pilots}}
+                <tr>
+                    <td>{{this.id}}</td>
+                    <td>{{this.name}}</td>
+                    <td>{{this.minutes}}</td>
+                    <td>{{this.position}}</td>
+                </tr>
+                {{/each}}
+            </table>
+        </td>
+    </tr>
+    {{/each}}
+</table>
+
+
+{{/plantillaExterna}}
