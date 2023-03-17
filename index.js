@@ -26,9 +26,7 @@ hbs.registerHelper('suma', value => parseInt(value) + 1)
 app.listen(3000)
 
 // Unión de todos los pilotos
-const pilotos1 = pilotos.map(equipo => equipo.piloto1)
-const pilotos2 = pilotos.map(equipo => equipo.piloto2)
-pilotos = (pilotos1.concat(...pilotos2))
+pilotos = pilotos.map(equipo => [equipo.piloto1, equipo.piloto2]).flat()
 
 // Renderizado de página index y traspaso de archivos json al index para la iteración
 app.get('/', (req, res) => res.render('index', {pilotos: pilotos, carreras: circuitos}))
