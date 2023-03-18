@@ -1,0 +1,52 @@
+[
+    {
+        "carrera": "STC Saudi Arabian GP, Jeddah Street Circuit",
+        "resultados": [
+            {
+                "piloto": "Valtteri Bottas",
+                "tiempo": 3661,
+                "abandono": "no"
+            },
+            {
+                "piloto": "Esteban Ocon",
+                "tiempo": 7322,
+                "abandono": "no"
+            },
+            {
+                "piloto": "Guanyu Zhou",
+                "tiempo": 10983,
+                "abandono": "no"
+            },
+            {
+                "piloto": "Nico Hulkenberg",
+                "tiempo": 0,
+                "abandono": "si"
+            }
+        ]
+    },
+    {
+        "carrera": "GP de Azerbaiyán, Baku City Circuit",
+        "resultados": [
+            {
+                "piloto": "Pierre Gasly",
+                "tiempo": 3661,
+                "abandono": "no"
+            },
+            {
+                "piloto": "Fernando Alonso",
+                "tiempo": 7322,
+                "abandono": "no"
+            },
+            {
+                "piloto": "Kevin Magnussen",
+                "tiempo": 10983,
+                "abandono": "no"
+            },
+            {
+                "piloto": "Lando Norris",
+                "tiempo": 0,
+                "abandono": "si"
+            }
+        ]
+    }
+]

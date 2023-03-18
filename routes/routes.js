@@ -53,9 +53,36 @@ router.get("/ingresar-resultados", (req, res) =>{
 
 
 router.post("/resultados-carrera", (req, res) =>{
+
+    let resultados = JSON.parse(fs.readFileSync("./BD/resultados.json"))
+
+    let resultadoCarrera =  {
+                                carrera:req.body.carrera,
+                                resultados: []
+                            }
     
-    console.log(req.body)
+    let pilotos = req.body.pilotos
+    let hh = req.body.hh
+    let mm = req.body.mm
+    let ss = req.body.ss
+    let abandono = req.body.abandono
+
+    for (let index = 0; index < pilotos.length; index++) {
+        let piloto = pilotos[index];
+        let hhCarrera = hh[index];
+        let mmCarrera = mm[index];
+        let ssCarrera = ss[index];
+        let abandonoCarrera = abandono[index]
+        if(piloto != ""){
+            let tiempoSegundos = (hhCarrera*3600) + (mmCarrera*60) + ssCarrera
+            resultadoCarrera.resultados.push({piloto:piloto, tiempo:tiempoSegundos, abandono:abandonoCarrera })
+        }
+        
+    }          
+
+    resultados.push(resultadoCarrera)
     
+    fs.writeFileSync("./BD/resultados.json",JSON.stringify(resultados))
     
 })
 
