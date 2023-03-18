@@ -2,16 +2,17 @@
 
 <main>
     <form action="resultados-carrera" method="POST" id="ingresoDatos">
+        <label for="carrera">Ingresa Carrera: </label>
         <select name="carrera" id="carrera">
-            <option>carrera</option>
-            {{#each carreras}}
-
+            <option>Carrera</option>
+            {{#each circuitos}}
+                <option>{{carrera}}</option>
             {{/each}}
         </select>
         <table class="table">
         <thead>
             <tr>
-            <th scope="col">Posición</th>
+            
             <th scope="col">Piloto</th>
             <th scope="col">Tiempo (hh:mm:ss)</th>
             <th scope="col">Abandono</th>
@@ -20,11 +21,11 @@
             <tbody>
                 {{#each escuderias}}
                 <tr>
-                    <th scope="row">{{numero}}</th>
+                    
                     <td><select name="piloto" id="{{numero}}" class="selector">
-                            <option selected>Piloto</option>
+                            <option >Piloto</option>
                             {{#each pilotos}}
-                                <option class="{{piloto}}">{{piloto}}</option>
+                                <option class="{{piloto}}" value="{{piloto}}">{{piloto}}</option>
                             {{/each}}
                         </select>
                     </td>
@@ -34,16 +35,19 @@
                         <input type="number"  name="ss" class="tiempo{{numero}}" step="any" min="0" max="59.9999">
                     </td>
                     <td>
-                        <label for="abandonoSi{{numero}}" >Si</label>
-                        <input id="abandonoSi{{numero}}" type="checkbox" name="abandono" value="si">
-                        <label for="abandonoNo{{numero}}" >No</label>
-                        <input for="abandonoNo" id="abandonoNo{{numero}}" type="checkbox" value="no" name="abandono" checked>
+                        <select name="abandono" class="abandono" id="abandono{{numero}}">
+                            <option value="no">No</option>
+                            <option value="si">Si</option>
+
+                        </select>
+                        
                     </td>
                 </tr> 
                 
                 {{/each}}
             </tbody>
         </table>
+        <input type="hidden" name="json">
         <button type="submit" for="ingresoDatos" class="btn bg-success">Enviar</button>
     </form>
 </main>
