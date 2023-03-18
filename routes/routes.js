@@ -15,7 +15,6 @@ router.get("/", (req, res) =>{
 
 router.get("/ingresar-resultados", (req, res) =>{
     let infoPilotos = JSON.parse(fs.readFileSync("./BD/equipos.json"))
-    console.log(infoPilotos)
     let equipos = infoPilotos.equipos
     let escuderias = []
     let pilotos = equipos.map(escuderia =>[escuderia.piloto1, escuderia.piloto2]).flat()
