@@ -1,0 +1,50 @@
+{{#> template}}
+
+<main>
+    <form action="resultados-carrera" method="POST" id="ingresoDatos">
+        <select name="carrera" id="carrera">
+            <option>carrera</option>
+            {{#each carreras}}
+
+            {{/each}}
+        </select>
+        <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">Posición</th>
+            <th scope="col">Piloto</th>
+            <th scope="col">Tiempo (hh:mm:ss)</th>
+            <th scope="col">Abandono</th>
+            </tr>
+        </thead>
+            <tbody>
+                {{#each escuderias}}
+                <tr>
+                    <th scope="row">{{numero}}</th>
+                    <td><select name="piloto" id="{{numero}}" class="selector">
+                            <option selected>Piloto</option>
+                            {{#each pilotos}}
+                                <option class="{{piloto}}">{{piloto}}</option>
+                            {{/each}}
+                        </select>
+                    </td>
+                    <td>
+                        <input type="number"  name="hh" class="tiempo{{numero}}" > :
+                        <input type="number"  name="mm" class="tiempo{{numero}}" min="0" max="59"> :
+                        <input type="number"  name="ss" class="tiempo{{numero}}" step="any" min="0" max="59.9999">
+                    </td>
+                    <td>
+                        <label for="abandonoSi{{numero}}" >Si</label>
+                        <input id="abandonoSi{{numero}}" type="checkbox" name="abandono" value="si">
+                        <label for="abandonoNo{{numero}}" >No</label>
+                        <input for="abandonoNo" id="abandonoNo{{numero}}" type="checkbox" value="no" name="abandono" checked>
+                    </td>
+                </tr> 
+                
+                {{/each}}
+            </tbody>
+        </table>
+        <button type="submit" for="ingresoDatos" class="btn bg-success">Enviar</button>
+    </form>
+</main>
+{{/template}}
