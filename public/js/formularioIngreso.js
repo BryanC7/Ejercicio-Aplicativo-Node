@@ -86,8 +86,6 @@ for (let index = 0; index < selectAbandono.length; index++) {
 arregloSelectAbandono.forEach(select => {
   
   select.addEventListener("change", function(){
-   
-    console.log(select.id.replace(/[^0-9]+/g, ""))
     let inputTiempo = document.getElementsByClassName(`tiempo${select.id.replace(/[^0-9]+/g, "")}`)
     
     for (let index = 0; index < inputTiempo.length; index++) {
