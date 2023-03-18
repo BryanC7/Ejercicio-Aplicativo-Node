@@ -36,11 +36,18 @@ router.get("/ingresar-resultados", (req, res) =>{
 
     let i = 0
     equipos.forEach(element => {
-        i++
+    
+       
         escuderias.push({"numero":i,"escuderia":element.escuderia,"piloto":element.piloto1,"pilotos":nombresPilotos})
         i++
+        
         escuderias.push({"numero":i,"escuderia":element.escuderia,"piloto":element.piloto2,"pilotos":nombresPilotos})
+        
+        i++
     });
+
+    
+    
     res.render("ingresar-resultados",{"escuderias":escuderias,"circuitos":circuitos, "script":"/public/js/formularioIngreso.js"})
 })
 

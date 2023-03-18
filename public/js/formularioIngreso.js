@@ -73,17 +73,22 @@ arregloSelect.forEach(element =>{
 })
 
 
+//Inputs de tiempo en cero en caso de abandono
 
 let arregloSelectAbandono = []
-for (let index = 1; index < selectAbandono.length; index++) {
+
+for (let index = 0; index < selectAbandono.length; index++) {
   let element = selectAbandono[index];
   arregloSelectAbandono.push(element)
+  
 }
-
+ 
 arregloSelectAbandono.forEach(select => {
+  
   select.addEventListener("change", function(){
-    let id = select.id.slice(select.id.length - 2)
-    let inputTiempo = document.getElementsByClassName(`tiempo${id}`)
+   
+    console.log(select.id.replace(/[^0-9]+/g, ""))
+    let inputTiempo = document.getElementsByClassName(`tiempo${select.id.replace(/[^0-9]+/g, "")}`)
     
     for (let index = 0; index < inputTiempo.length; index++) {
       let input = inputTiempo[index];
