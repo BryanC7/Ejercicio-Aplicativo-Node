@@ -1,51 +1,118 @@
 [
     {
-        "carrera": "STC Saudi Arabian GP, Jeddah Street Circuit",
+        "carrera": "Rolex Australian GP, Circuito Grand Prix Melbourne",
         "resultados": [
             {
-                "piloto": "Valtteri Bottas",
-                "tiempo": 3661,
-                "abandono": "no"
+                "piloto": "Kevin Magnussen",
+                "tiempo": 7386,
+                "abandono": "no",
+                "puntos": 25
+            },
+            {
+                "piloto": "Charles Leclerc",
+                "tiempo": 7449,
+                "abandono": "no",
+                "puntos": 18
+            },
+            {
+                "piloto": "Lance Stroll",
+                "tiempo": 11107,
+                "abandono": "no",
+                "puntos": 15
             },
             {
                 "piloto": "Esteban Ocon",
-                "tiempo": 7322,
-                "abandono": "no"
+                "tiempo": 11168,
+                "abandono": "no",
+                "puntos": 12
             },
             {
-                "piloto": "Guanyu Zhou",
-                "tiempo": 10983,
-                "abandono": "no"
+                "piloto": "Max Verstappen",
+                "tiempo": 11284,
+                "abandono": "no",
+                "puntos": 10
             },
             {
-                "piloto": "Nico Hulkenberg",
-                "tiempo": 0,
-                "abandono": "si"
-            }
-        ]
-    },
-    {
-        "carrera": "GP de Azerbaiyán, Baku City Circuit",
-        "resultados": [
-            {
-                "piloto": "Pierre Gasly",
-                "tiempo": 3661,
-                "abandono": "no"
+                "piloto": "Valtteri Bottas",
+                "tiempo": 14644,
+                "abandono": "no",
+                "puntos": 8
             },
             {
-                "piloto": "Fernando Alonso",
-                "tiempo": 7322,
-                "abandono": "no"
-            },
-            {
-                "piloto": "Kevin Magnussen",
-                "tiempo": 10983,
-                "abandono": "no"
+                "piloto": "Nyck de Vries",
+                "tiempo": 18429,
+                "abandono": "no",
+                "puntos": 6
             },
             {
                 "piloto": "Lando Norris",
                 "tiempo": 0,
-                "abandono": "si"
+                "abandono": "si",
+                "puntos": 0
+            },
+            {
+                "piloto": "Lewis Hamilton",
+                "tiempo": 0,
+                "abandono": "si",
+                "puntos": 0
+            }
+        ]
+    },
+    {
+        "carrera": "STC Saudi Arabian GP, Jeddah Street Circuit",
+        "resultados": [
+            {
+                "piloto": "Yuki Tsunoda",
+                "tiempo": 4013,
+                "abandono": "no",
+                "puntos": 25
+            },
+            {
+                "piloto": "Lando Norris",
+                "tiempo": 7448,
+                "abandono": "no",
+                "puntos": 18
+            },
+            {
+                "piloto": "Valtteri Bottas",
+                "tiempo": 7506,
+                "abandono": "no",
+                "puntos": 15
+            },
+            {
+                "piloto": "Pierre Gasly",
+                "tiempo": 11164,
+                "abandono": "no",
+                "puntos": 12
+            },
+            {
+                "piloto": "Fernando Alonso",
+                "tiempo": 14886,
+                "abandono": "no",
+                "puntos": 10
+            },
+            {
+                "piloto": "Carlos Sainz",
+                "tiempo": 83103,
+                "abandono": "no",
+                "puntos": 8
+            },
+            {
+                "piloto": "Kevin Magnussen",
+                "tiempo": 0,
+                "abandono": "si",
+                "puntos": 0
+            }
+        ]
+    },
+    {
+        "carrera": "Pirelli Italian GP, Autodromo Nazionale Monza",
+        "resultados": [
+            {
+                "piloto": "Logan Sargeant",
+                "tiempo": 13543,
+                "abandono": "no",
+                "puntos": 25
             }
         ]
     }

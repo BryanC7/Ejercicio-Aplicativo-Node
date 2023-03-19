@@ -56,6 +56,12 @@ router.post("/resultados-carrera", (req, res) =>{
 
     let resultados = JSON.parse(fs.readFileSync("./BD/resultados.json"))
 
+    
+    resultados.forEach(element =>{
+        if(element.carrera == req.body.carrera){
+           resultados.splice(resultados.indexOf(element),1)
+        }
+    })
     let resultadoCarrera =  {
                                 carrera:req.body.carrera,
                                 resultados: []
@@ -79,6 +85,40 @@ router.post("/resultados-carrera", (req, res) =>{
         }
         
     }          
+    resultadoCarrera = resultadoCarrera.resultados.sort(((a, b) => a.tiempo - b.tiempo ))
+    let puestos = []
+    let abandonos = []
+    let puntaje = [25,18,15,12,10,8,6,4,3,2,1]
+
+    
+    resultadoCarrera.forEach(element =>{
+        if(element.tiempo !=0){
+            puestos.push(element)
+        }else{
+            abandonos.push(element)
+        }
+    })
+
+    for (let index = 0; index < puestos.length; index++) {
+        let piloto = puestos[index];
+        let puntos = puntaje[index]
+        if(index < 10){
+            piloto.puntos = puntos
+        }else{
+            piloto.puntos = 0
+        }
+    }
+
+    abandonos.forEach(element =>{
+        element.puntos = 0
+    })
+    
+    resultadoCarrera = {
+                            carrera:req.body.carrera,
+                            resultados: puestos.concat(abandonos)
+                        }
+    
+    
 
     resultados.push(resultadoCarrera)
     
