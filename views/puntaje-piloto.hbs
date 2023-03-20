@@ -3,9 +3,9 @@
     <table class="table">
   <thead>
     <tr>
-      <th scope="col">Posición</th>
+      <th scope="col" class="table-light">Posición</th>
       <th scope="col">Piloto</th>
-      <th scope="col">Total</th>
+      <th scope="col" class="table-light">Total</th>
       {{#each banderas}}
       <th>
       <img src="{{bandera}}" alt="" style="height: 10px; width:20px">
@@ -16,10 +16,10 @@
   <tbody>
     {{#each puntajes}}
     <tr>
-      <th scope="row">{{posicion}}</th>
+      <th scope="row" class="table-light">{{posicion}}°</th>
       
       <td>{{piloto}}</td>
-      <td>{{totalpuntos}}</td>
+      <th  class="table-light">{{totalpuntos}}</th>
       {{#each carreras}}
         <td>{{this}}</td>
       {{/each}}
