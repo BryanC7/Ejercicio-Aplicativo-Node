@@ -211,9 +211,35 @@ router.get("/puntaje-piloto", (req, res) =>{
     piloto.posicion = i++
    })
    
-   
-
     res.render("puntaje-piloto",{banderas,puntajes})
+})
+
+router.get("/puntajes-escuderias", (req, res) => {
+    let datos = JSON.parse(fs.readFileSync("./BD/resultados.json"))
+    let puntajes = []
+
+    datos.forEach(dato => {
+        dato.resultados.forEach(carrera => {
+            const escuderia = {
+                escuderia: carrera.escuderia,
+                puntos: carrera.puntos
+            }
+            if(puntajes.some(equipo => equipo.escuderia === escuderia.escuderia)) {
+                const puntajesSumados = puntajes.map(piloto => {
+                    if(piloto.escuderia === escuderia.escuderia) {
+                        piloto.puntos+= escuderia.puntos
+                        return piloto
+                    } else {
+                        return piloto
+                    }
+                })
+                puntajes = puntajesSumados
+            } else {
+                puntajes = [...puntajes, escuderia]
+            }
+        })
+    })
+    res.render("puntajes-escuderias", {puntajes})
 })
 
 router.get("*", (req, res) =>{
@@ -221,5 +247,3 @@ router.get("*", (req, res) =>{
 })
 
 export default router
-
-
