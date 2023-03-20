@@ -1,1 +1,94 @@
-[{"carrera":"Gulf Air Bahrain GP, Bahrain International Circuit","resultados":[{"piloto":"Valtteri Bottas","escuderia":"Alfa Romeo","tiempo":3661,"abandono":"no","puntos":25},{"piloto":"Guanyu Zhou","escuderia":"Alfa Romeo","tiempo":7322,"abandono":"no","puntos":18},{"piloto":"Esteban Ocon","escuderia":"Alpine","tiempo":10983,"abandono":"no","puntos":15},{"piloto":"Lando Norris","escuderia":"McLaren","tiempo":14644,"abandono":"no","puntos":12},{"piloto":"George Russell","escuderia":"Mercedes","tiempo":0,"abandono":"si","puntos":0}]},{"carrera":"Etihad Airways Abu Dhabi GP, Yas Marina Circuit","resultados":[{"piloto":"Esteban Ocon","escuderia":"Alpine","tiempo":3661,"abandono":"no","puntos":25}]},{"carrera":"GP de Mónaco, Circuit de Monaco","resultados":[{"piloto":"Lewis Hamilton","escuderia":"Mercedes","tiempo":5459,"abandono":"no","puntos":25},{"piloto":"Nyck de Vries","escuderia":"Alpha Tauri","tiempo":7323,"abandono":"no","puntos":18},{"piloto":"Guanyu Zhou","escuderia":"Alfa Romeo","tiempo":11286,"abandono":"no","puntos":15},{"piloto":"Kevin Magnussen","escuderia":"Haas","tiempo":18402,"abandono":"no","puntos":12},{"piloto":"Checo Pérez","escuderia":"Red Bull","tiempo":0,"abandono":"si","puntos":0}]}]
+[
+    {
+        "carrera": "Gulf Air Bahrain GP, Bahrain International Circuit",
+        "resultados": [
+            {
+                "piloto": "Valtteri Bottas",
+                "escuderia": "Alfa Romeo",
+                "tiempo": 3661,
+                "abandono": "no",
+                "puntos": 25
+            },
+            {
+                "piloto": "Guanyu Zhou",
+                "escuderia": "Alfa Romeo",
+                "tiempo": 7322,
+                "abandono": "no",
+                "puntos": 18
+            },
+            {
+                "piloto": "Esteban Ocon",
+                "escuderia": "Alpine",
+                "tiempo": 10983,
+                "abandono": "no",
+                "puntos": 15
+            },
+            {
+                "piloto": "Lando Norris",
+                "escuderia": "McLaren",
+                "tiempo": 14644,
+                "abandono": "no",
+                "puntos": 12
+            },
+            {
+                "piloto": "George Russell",
+                "escuderia": "Mercedes",
+                "tiempo": 0,
+                "abandono": "si",
+                "puntos": 0
+            }
+        ]
+    },
+    {
+        "carrera": "Etihad Airways Abu Dhabi GP, Yas Marina Circuit",
+        "resultados": [
+            {
+                "piloto": "Esteban Ocon",
+                "escuderia": "Alpine",
+                "tiempo": 3661,
+                "abandono": "no",
+                "puntos": 25
+            }
+        ]
+    },
+    {
+        "carrera": "GP de Mónaco, Circuit de Monaco",
+        "resultados": [
+            {
+                "piloto": "Lewis Hamilton",
+                "escuderia": "Mercedes",
+                "tiempo": 5459,
+                "abandono": "no",
+                "puntos": 25
+            },
+            {
+                "piloto": "Nyck de Vries",
+                "escuderia": "Alpha Tauri",
+                "tiempo": 7323,
+                "abandono": "no",
+                "puntos": 18
+            },
+            {
+                "piloto": "Guanyu Zhou",
+                "escuderia": "Alfa Romeo",
+                "tiempo": 11286,
+                "abandono": "no",
+                "puntos": 15
+            },
+            {
+                "piloto": "Kevin Magnussen",
+                "escuderia": "Haas",
+                "tiempo": 18402,
+                "abandono": "no",
+                "puntos": 12
+            },
+            {
+                "piloto": "Checo Pérez",
+                "escuderia": "Red Bull",
+                "tiempo": 0,
+                "abandono": "si",
+                "puntos": 0
+            }
+        ]
+    }
+]

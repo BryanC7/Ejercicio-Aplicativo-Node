@@ -1,0 +1,26 @@
+{{#> template}}
+
+
+<h1>Puntaje Escuderías</h1>
+<main>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Posición</th>
+      <th scope="col">Escudería</th>
+      <th scope="col">Puntaje</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each escuderias}}
+    <tr>
+      <td>{{posicion}}</td>
+      <td>{{escuderia}}</td>
+      <td>{{puntaje}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+</main>
+{{/template}}
