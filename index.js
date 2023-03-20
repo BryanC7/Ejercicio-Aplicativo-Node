@@ -13,7 +13,7 @@ app.use(express.static("public"))
 app.use(indexRoutes)
 
 hbs.registerPartials(join(__dirname,"views/partials"))
-
+hbs.registerHelper("suma", indice => indice + 1)
 
 app.listen(3000, function(){
     console.log("Servidor en puerto 3000")

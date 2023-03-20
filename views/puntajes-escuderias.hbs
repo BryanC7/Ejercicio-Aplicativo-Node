@@ -3,6 +3,7 @@
     <table class="table">
         <thead>
             <tr class="text-center">
+                <th scope="col" class="table-light">Ranking</th>
                 <th scope="col" class="table-light">Escuderías</th>
                 <th scope="col" class="table-light">Puntaje total</th>
             </tr>
@@ -10,6 +11,7 @@
         <tbody>
         {{#each puntajes}}
             <tr class="text-center">
+                <td>{{suma @index}}</td>
                 <td>{{escuderia}}</td>
                 <td>{{puntos}}</td>
             </tr>    
