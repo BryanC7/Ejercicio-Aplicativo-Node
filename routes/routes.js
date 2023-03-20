@@ -17,7 +17,7 @@ router.get("/", (req, res) =>{
 router.get("/ingresar-resultados", (req, res) =>{
     let infoPilotos = JSON.parse(fs.readFileSync("./BD/equipos.json"))
     let carreras = JSON.parse(fs.readFileSync("./BD/circuitos.json"))
-
+    
     let circuitos = []
 
     carreras.forEach(carrera =>{
@@ -28,7 +28,7 @@ router.get("/ingresar-resultados", (req, res) =>{
     let equipos = infoPilotos.equipos
     let escuderias = []
     let pilotos = equipos.map(escuderia =>[escuderia.piloto1, escuderia.piloto2]).flat()
-
+    
     let nombresPilotos = []
     pilotos.forEach(element =>{
         nombresPilotos.push({"piloto":element})
@@ -46,17 +46,21 @@ router.get("/ingresar-resultados", (req, res) =>{
         i++
     });
 
-    
-    
     res.render("ingresar-resultados",{"escuderias":escuderias,"circuitos":circuitos, "script":"/public/js/formularioIngreso.js"})
 })
-
 
 router.post("/resultados-carrera", (req, res) =>{
 
     let resultados = JSON.parse(fs.readFileSync("./BD/resultados.json"))
-
+    let esc= JSON.parse(fs.readFileSync("./BD/equipos.json"))
+    let equipos = []
     
+    for (let index = 0; index < esc.equipos.length; index++) {
+        const element = esc.equipos[index];
+        equipos.push(element)
+    }
+
+
     resultados.forEach(element =>{
         if(element.carrera == req.body.carrera){
            resultados.splice(resultados.indexOf(element),1)
@@ -74,14 +78,22 @@ router.post("/resultados-carrera", (req, res) =>{
     let abandono = req.body.abandono
 
     for (let index = 0; index < pilotos.length; index++) {
+        let escuderia;
+
         let piloto = pilotos[index];
         let hhCarrera = hh[index];
         let mmCarrera = mm[index];
         let ssCarrera = ss[index];
         let abandonoCarrera = abandono[index]
+
+        equipos.forEach(element => {
+            if(element.piloto1 == piloto || element.piloto2 == piloto){
+                escuderia = element.escuderia
+            }
+        });
         if(piloto != ""){
             let tiempoSegundos = (hhCarrera*3600) + (mmCarrera*60) + ssCarrera
-            resultadoCarrera.resultados.push({piloto:piloto, tiempo:tiempoSegundos, abandono:abandonoCarrera })
+            resultadoCarrera.resultados.push({piloto:piloto, escuderia:escuderia, tiempo:tiempoSegundos, abandono:abandonoCarrera })
         }
         
     }          
@@ -126,6 +138,84 @@ router.post("/resultados-carrera", (req, res) =>{
     
 })
 
+router.get("/puntaje-piloto", (req, res) =>{
+    let result = JSON.parse(fs.readFileSync("./BD/resultados.json"))
+    let esc = JSON.parse(fs.readFileSync("./BD/equipos.json")).equipos
+    let circuitos = JSON.parse(fs.readFileSync("./BD/circuitos.json"))
+    let puntajes = []
+    let banderas = []
+    let pilotos = []
+    let resultados= []
+
+    for (let index = 0; index < result.length; index++) {
+        const element = result[index];
+        resultados.push(element)
+    }
+    for (let index = 0; index < circuitos.length; index++) {
+        const element = circuitos[index];
+        banderas.push({bandera:element.bandera})
+    }
+    
+    for (let index = 0; index < esc.length; index++) {
+        const element = esc[index];
+        pilotos.push(element.piloto1)
+        pilotos.push(element.piloto2)
+    }
+
+    pilotos.forEach(piloto =>{
+        let a = {piloto:piloto,totalpuntos: 0, carreras:[]}
+        circuitos.forEach(carrera =>{
+            a.carreras.push("-")
+        })
+        puntajes.push(a)
+
+    })
+  
+    
+   //Total de puntajes por piloto
+    resultados.forEach(result =>{
+        result.resultados.forEach(carrera =>{
+            puntajes.forEach(piloto =>{
+                if(piloto.piloto == carrera.piloto){
+                    piloto.totalpuntos += carrera.puntos
+                }
+            })
+        })
+    })
+    
+    
+   
+    
+
+    puntajes.forEach(piloto =>{
+        for (let index = 0; index < circuitos.length; index++) {
+            const carrera = circuitos[index];
+            let i = circuitos.indexOf(carrera)
+            resultados.forEach(result =>{
+                if(carrera.circuito == result.carrera){
+                    result.resultados.forEach(resultadoPiloto =>{
+                        if(piloto.piloto == resultadoPiloto.piloto){
+                            piloto.carreras[i] = resultadoPiloto.puntos
+                        }
+                        
+                    })
+                }
+            })
+        }
+    })
+    
+   puntajes = puntajes.sort((a, b) => b.totalpuntos - a.totalpuntos)
+   
+   let i = 1
+   puntajes.forEach(piloto =>{
+    piloto.posicion = i++
+   })
+   
+   
+
+    res.render("puntaje-piloto",{banderas,puntajes})
+})
+
 router.get("*", (req, res) =>{
     res.render("error")
 })
@@ -133,17 +223,3 @@ router.get("*", (req, res) =>{
 export default router
 
 
-//escritura de json con resultados
-
-/*app.post('/cargar', (req, res) => {
-    const resultado = {
-        piloto: req.body.piloto,
-        carrera: req.body.carrera,
-        posicion: req.body.posicion,
-        abandono: req.body.abandono
-    }
-
-    resultadosCarreras.push(resultado)
-    fs.writeFileSync('resultados.json', JSON.stringify(resultadosCarreras))
-    res.send('Resultado almacenado correctamente')
-})*/

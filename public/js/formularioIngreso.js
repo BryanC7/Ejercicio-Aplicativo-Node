@@ -168,7 +168,6 @@ formulario.addEventListener("submit", evento =>{
     }
     
     infoPost = JSON.stringify(infoPost)
-    console.log( infoPost)
 
     
     

@@ -1,0 +1,32 @@
+{{#> template}}
+<main>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Posición</th>
+      <th scope="col">Piloto</th>
+      <th scope="col">Total</th>
+      {{#each banderas}}
+      <th>
+      <img src="{{bandera}}" alt="" style="height: 10px; width:20px">
+      </th>
+      {{/each}}
+    </tr>
+  </thead>
+  <tbody>
+    {{#each puntajes}}
+    <tr>
+      <th scope="row">{{posicion}}</th>
+      
+      <td>{{piloto}}</td>
+      <td>{{totalpuntos}}</td>
+      {{#each carreras}}
+        <td>{{this}}</td>
+      {{/each}}
+    </tr>
+    {{/each}}
+    
+  </tbody>
+</table>
+</main>
+{{/template}}

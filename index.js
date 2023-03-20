@@ -12,9 +12,8 @@ app.set("view engine", "hbs")
 app.use(express.static("public"))
 app.use(indexRoutes)
 
-
-
 hbs.registerPartials(join(__dirname,"views/partials"))
+
 
 app.listen(3000, function(){
     console.log("Servidor en puerto 3000")
