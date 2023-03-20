@@ -1,29 +1,23 @@
 import { Router } from "express";
-
 import fs from "fs";
-
 import bodyParser from "body-parser";
 
 const router = Router()
-
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json())
 
 router.get("/", (req, res) =>{
     res.render("index",{"titulo": "F1 Info"})
-    
 })
 
 router.get("/ingresar-resultados", (req, res) =>{
     let infoPilotos = JSON.parse(fs.readFileSync("./BD/equipos.json"))
     let carreras = JSON.parse(fs.readFileSync("./BD/circuitos.json"))
-    
     let circuitos = []
 
     carreras.forEach(carrera =>{
         circuitos.push({"carrera":carrera.circuito})
     })
-    
     
     let equipos = infoPilotos.equipos
     let escuderias = []
@@ -36,13 +30,10 @@ router.get("/ingresar-resultados", (req, res) =>{
 
     let i = 0
     equipos.forEach(element => {
-    
-       
         escuderias.push({"numero":i,"escuderia":element.escuderia,"piloto":element.piloto1,"pilotos":nombresPilotos})
         i++
         
         escuderias.push({"numero":i,"escuderia":element.escuderia,"piloto":element.piloto2,"pilotos":nombresPilotos})
-        
         i++
     });
 
@@ -50,7 +41,6 @@ router.get("/ingresar-resultados", (req, res) =>{
 })
 
 router.post("/resultados-carrera", (req, res) =>{
-
     let resultados = JSON.parse(fs.readFileSync("./BD/resultados.json"))
     let esc= JSON.parse(fs.readFileSync("./BD/equipos.json"))
     let equipos = []
@@ -60,16 +50,15 @@ router.post("/resultados-carrera", (req, res) =>{
         equipos.push(element)
     }
 
-
     resultados.forEach(element =>{
         if(element.carrera == req.body.carrera){
            resultados.splice(resultados.indexOf(element),1)
         }
     })
     let resultadoCarrera =  {
-                                carrera:req.body.carrera,
-                                resultados: []
-                            }
+        carrera:req.body.carrera,
+        resultados: []
+    }
     
     let pilotos = req.body.pilotos
     let hh = req.body.hh
@@ -90,19 +79,18 @@ router.post("/resultados-carrera", (req, res) =>{
             if(element.piloto1 == piloto || element.piloto2 == piloto){
                 escuderia = element.escuderia
             }
-        });
+        })
         if(piloto != ""){
             let tiempoSegundos = (hhCarrera*3600) + (mmCarrera*60) + ssCarrera
             resultadoCarrera.resultados.push({piloto:piloto, escuderia:escuderia, tiempo:tiempoSegundos, abandono:abandonoCarrera })
         }
-        
-    }          
+    }       
+
     resultadoCarrera = resultadoCarrera.resultados.sort(((a, b) => a.tiempo - b.tiempo ))
     let puestos = []
     let abandonos = []
     let puntaje = [25,18,15,12,10,8,6,4,3,2,1]
 
-    
     resultadoCarrera.forEach(element =>{
         if(element.tiempo !=0){
             puestos.push(element)
@@ -126,16 +114,13 @@ router.post("/resultados-carrera", (req, res) =>{
     })
     
     resultadoCarrera = {
-                            carrera:req.body.carrera,
-                            resultados: puestos.concat(abandonos)
-                        }
+        carrera:req.body.carrera,
+        resultados: puestos.concat(abandonos)
+    }
     
-    
-
     resultados.push(resultadoCarrera)
     
     fs.writeFileSync("./BD/resultados.json",JSON.stringify(resultados))
-    
 })
 
 router.get("/puntaje-piloto", (req, res) =>{
@@ -171,7 +156,6 @@ router.get("/puntaje-piloto", (req, res) =>{
 
     })
   
-    
    //Total de puntajes por piloto
     resultados.forEach(result =>{
         result.resultados.forEach(carrera =>{
@@ -183,10 +167,6 @@ router.get("/puntaje-piloto", (req, res) =>{
         })
     })
     
-    
-   
-    
-
     puntajes.forEach(piloto =>{
         for (let index = 0; index < circuitos.length; index++) {
             const carrera = circuitos[index];
@@ -204,19 +184,16 @@ router.get("/puntaje-piloto", (req, res) =>{
         }
     })
     
-   puntajes = puntajes.sort((a, b) => b.totalpuntos - a.totalpuntos)
+    puntajes = puntajes.sort((a, b) => b.totalpuntos - a.totalpuntos)
    
-   let i = 1
-   puntajes.forEach(piloto =>{
-    piloto.posicion = i++
-   })
+    let i = 1
+    puntajes.forEach(piloto => piloto.posicion = i++)
    
     res.render("puntaje-piloto",{banderas,puntajes})
 })
 
 
 router.get("/puntaje-escuderia", (req, res) =>{
-
     let archivoResultados = JSON.parse(fs.readFileSync("./BD/resultados.json"))
     let archivoEquipos = JSON.parse(fs.readFileSync("./BD/equipos.json"))
     let resultados = []
@@ -237,7 +214,6 @@ router.get("/puntaje-escuderia", (req, res) =>{
     equipos.forEach(element =>{
         escuderias.push({escuderia:element.escuderia, puntaje:0})
     })
-
 
     escuderias.forEach(escuderia =>{
         let puntos = 0
@@ -278,7 +254,6 @@ router.get("/ranking-abandono", (req, res) =>{
         pilotos.push(element)
     }
     
-    
     pilotos.forEach(element =>{
         abandonos.push({piloto:element.piloto1, puntosabandono:0, escuderia:element.escuderia})
         abandonos.push({piloto:element.piloto2, puntosabandono:0, escuderia:element.escuderia})
@@ -287,11 +262,9 @@ router.get("/ranking-abandono", (req, res) =>{
     abandonos.forEach(piloto =>{
         let cantAbandono = 0
         resultados.forEach(element =>{
-           
             if(piloto.piloto == element.piloto && element.abandono == "si"){
                 cantAbandono++
             }
-
         })
         piloto.puntosabandono = cantAbandono
     })
@@ -308,7 +281,5 @@ router.get("/ranking-abandono", (req, res) =>{
 router.get("*", (req, res) =>{
     res.render("error")
 })
-
-
 
 export default router
