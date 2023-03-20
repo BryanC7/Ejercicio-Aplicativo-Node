@@ -1,55 +1,69 @@
 [
     {
         "id": 1,
-        "name": "Monaco Grand Prix",
+        "Racename": "Monaco Grand Prix",
         "pilots": [
             {
                 "id": 1,
                 "name": "Lewis Hamilton",
-                "minutos": 0,
-                "ubicación": 0,
-                "puntaje": 10
+                "minutes": 12,
+                "position": 0,
+                "points": 0
             },
             {
                 "id": 2,
                 "name": "Max Verstappen",
-                "puntaje": 25
+                "minutes": 0,
+                "position": 0,
+                "points": 0
             },
             {
                 "id": 3,
                 "name": "Valtteri Bottas",
-                "puntaje": 18
+                "minutes": 0,
+                "position": 0,
+                "points": 0
             },
             {
                 "id": 4,
                 "name": "Charles Leclerc",
-                "puntaje": 20
+                "minutes": 0,
+                "position": 0,
+                "points": 0
             }
         ]
     },
     {
         "id": 2,
-        "name": "Italian Grand Prix",
+        "Racename": "Italian Grand Prix",
         "pilots": [
             {
                 "id": 1,
                 "name": "Lewis Hamilton",
-                "puntaje": 5
+                "minutes": 13,
+                "position": 0,
+                "points": 0
             },
             {
                 "id": 2,
                 "name": "Max Verstappen",
-                "puntaje": 10
+                "minutes": 12,
+                "position": 0,
+                "points": 0
             },
             {
                 "id": 3,
                 "name": "Valtteri Bottas",
-                "puntaje": 25
+                "minutes": 0,
+                "position": 0,
+                "points": 0
             },
             {
                 "id": 4,
                 "name": "Charles Leclerc",
-                "puntaje": 10
+                "minutes": 0,
+                "position": 0,
+                "points": 0
             }
         ]
     }

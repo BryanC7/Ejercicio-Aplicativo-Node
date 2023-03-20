@@ -1,0 +1,35 @@
+{{#>plantillaExterna}}
+
+{{#each races}}
+<h2>{{this.name}}</h2>
+<h2>{{this.id}}</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Minutes</th>
+            <th>Position</th>
+            <th>Points</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each this.pilots}}
+        <tr>
+            <td>{{this.name}}</td>
+            <td>
+                <form action="/update-minutes/{{../id}}/{{this.id}}" method="POST">
+                    <input type="number" name="minutes" value="{{this.minutes}}">
+                    <button type="submit">Save</button>
+                </form>
+            </td>
+            <td>{{this.position}}</td>
+            <td>{{this.points}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{/each}}
+
+
+{{/plantillaExterna}}

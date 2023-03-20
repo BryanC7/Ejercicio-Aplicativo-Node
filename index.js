@@ -14,7 +14,6 @@ app.listen(3000)
 
 const equipos = JSON.parse(fs.readFileSync('equipos.json', 'utf-8'));
 const pilotos = equipos.map(({ piloto1, piloto2 }) => [piloto1, piloto2]);
-console.log(pilotos.flat());
 
 // PILOTOS
 
@@ -31,10 +30,9 @@ app.get("/carerras", (req, res) => {
     res.render("carreras", { circuitos });
 });
 
-console.log(circuitos)
 
 
-// PRUEBA CON Otros archivos:
+// PRUEBA CON archivos CIRCUIT and PILOTS:
 
 const circuits = require("./circuit.json");
 const pilots = require("./pilots.json");
@@ -46,13 +44,13 @@ app.get("/pruebas", (req, res) => {
                 id: pilot.id,
                 name: pilot.name,
                 minutes: "",
-                position:"",
+                position: "",
                 points: ""
             };
         });
         return {
             id: circuit.id,
-            name: circuit.name,
+            name: circuit.Racename,
             pilots: pilotsData,
         };
     });
@@ -77,3 +75,34 @@ app.get("/pruebas", (req, res) => {
 
 // console.log(scores);
 
+
+const data = require('./combinados.json');
+const races = data.map((race) => ({
+    name: race.Racename,
+    id: race.id,
+    pilots: race.pilots,
+  }));
+
+  app.get('/combinados', (req, res) => {
+    res.render('combinados', { races });
+  });
+
+  const bodyParser = require('body-parser');
+  app.use(bodyParser.urlencoded({ extended: true }));
+
+  app.post('/update-minutes/:raceId/:pilotId', (req, res) => {
+    const raceId = Number(req.params.raceId);
+    const pilotId = Number(req.params.pilotId);
+    const minutes = Number(req.body.minutes);
+    const raceIndex = data.findIndex((race) => race.id === raceId);
+    if (raceIndex !== -1) {
+      const pilotIndex = data[raceIndex].pilots.findIndex((pilot) => pilot.id === pilotId);
+      if (pilotIndex !== -1) {
+        data[raceIndex].pilots[pilotIndex].minutes = minutes;
+        // Save updated data to the JSON file
+        fs.writeFileSync('combinados.json', JSON.stringify(data));
+      }
+    }
+    // res.redirect('/');
+});
+ 
