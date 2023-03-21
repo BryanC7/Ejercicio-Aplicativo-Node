@@ -4,7 +4,7 @@
     <form action="resultados-carrera" method="POST" id="ingresoDatos">
         <label for="carrera">Ingresa Carrera: </label>
         <select name="carrera " class="form-select" id="carrera">
-            <option>Carrera</option>
+            <option selected disabled>Carreras</option>
             {{#each circuitos}}
                 <option>{{carrera}}</option>
             {{/each}}
@@ -23,7 +23,7 @@
                 <tr>
                     
                     <td><select name="piloto" id="{{numero}}" class="selector form-select">
-                            <option >Piloto</option>
+                            <option selected disabled>Piloto</option>
                             {{#each pilotos}}
                                 <option class="{{piloto}}" value="{{piloto}}">{{piloto}}</option>
                             {{/each}}
