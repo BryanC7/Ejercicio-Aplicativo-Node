@@ -1,9 +1,9 @@
 {{#> template}}
-
-<main>
+<h1>Ingreso Carreras</h1>
+<main class="mainIngreso">
     <form action="resultados-carrera" method="POST" id="ingresoDatos">
         <label for="carrera">Ingresa Carrera: </label>
-        <select name="carrera" id="carrera">
+        <select name="carrera " class="form-select" id="carrera">
             <option>Carrera</option>
             {{#each circuitos}}
                 <option>{{carrera}}</option>
@@ -22,7 +22,7 @@
                 {{#each escuderias}}
                 <tr>
                     
-                    <td><select name="piloto" id="{{numero}}" class="selector">
+                    <td><select name="piloto" id="{{numero}}" class="selector form-select">
                             <option >Piloto</option>
                             {{#each pilotos}}
                                 <option class="{{piloto}}" value="{{piloto}}">{{piloto}}</option>
@@ -30,12 +30,12 @@
                         </select>
                     </td>
                     <td>
-                        <input type="number"  name="hh" class="tiempo{{numero}}" > :
-                        <input type="number"  name="mm" class="tiempo{{numero}}" min="0" max="59"> :
-                        <input type="number"  name="ss" class="tiempo{{numero}}" step="any" min="0" max="59.9999">
+                        <input type="number"  name="hh" class="tiempo{{numero}} inputTiempo" > :
+                        <input type="number"  name="mm" class="tiempo{{numero}} inputTiempo" min="0" max="59"> :
+                        <input type="number"  name="ss" class="tiempo{{numero}} inputTiempo" step="any" min="0" max="59.9999">
                     </td>
                     <td>
-                        <select name="abandono" class="abandono" id="abandono{{numero}}">
+                        <select name="abandono" class="abandono form-select" id="abandono{{numero}}">
                             <option value="no">No</option>
                             <option value="si">Si</option>
 
