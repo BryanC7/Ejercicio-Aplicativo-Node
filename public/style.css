@@ -21,7 +21,7 @@
     background-color: rgb(134, 134, 134)!important;
 }
 
-#ingresoDatos, #carrera, .tablaPuntaje,.mainPuntaje, .mainRanking, .mainEscuderia, .tablaEscuderias, .tablaAbandono{
+#ingresoDatos, #carrera,.mainIndex, .tablaPuntaje,.mainPuntaje, .mainRanking, .mainEscuderia, .tablaEscuderias, .tablaAbandono{
     background-color:rgba(255, 255, 255, 0.3);
     padding: 2%;
     width: 100%;
@@ -55,10 +55,7 @@ h1{
     font-size: 70px;
     padding: 2%;
 }
-body{
-    background-image: url("https://cnnespanol.cnn.com/wp-content/uploads/2023/03/f1-formula-1-checo-perez-GettyImages-1247675782-e1677885322904.jpg?quality=100&strip=info");
-    background-size: cover;
-}
+
 
 footer{
    font-family: "formula";
@@ -67,6 +64,8 @@ footer{
     text-align: center;
     padding: 1em;
     align-self: flex-end;
+    border-top: 2px solid black;
+    margin-top: 1%;
 }
 
 .mainIngreso{
@@ -88,11 +87,9 @@ a:hover{
 }
 
 .d-block{
-    height: 480px;
-    width: 740px!important;
+    height: 26rem;
+    width: 80rem!important;
+    border: 1px solid black;
+    border-radius: 10px;
 }
 
-.mainIndex{
-    display: flex;
-    justify-content: center;
-}
