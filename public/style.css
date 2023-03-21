@@ -78,3 +78,21 @@ footer{
     font-family: "formula";
     color: red!important;
 }
+
+a:hover{
+    color: white!important;
+}
+
+.btn{
+    font-family: "formula";
+}
+
+.d-block{
+    height: 480px;
+    width: 740px!important;
+}
+
+.mainIndex{
+    display: flex;
+    justify-content: center;
+}
