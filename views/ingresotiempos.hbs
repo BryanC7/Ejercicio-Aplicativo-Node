@@ -1,0 +1,50 @@
+{{#> template}}
+
+<h1>Ingreso tiempos pilotos</h1>
+
+<select name="circuitos" id="">
+    <option value="">Circuito</option>
+    {{#each circuito}}
+    <option value="{{@index}}">{{this}}</option>
+    {{/each}}
+</select>
+
+
+  <table class="table table-striped table-hover table-responsive">
+    <thead>     
+      <tr>
+        <th>Piloto</th>
+        <th>Horas</th>
+        <th>Minutos</th>
+        <th>Segundos</th>
+        <th>Milisegundos</th>
+         <th>Abandono</th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+      {{#each pilotos}}
+      <tr>
+        <th>
+          <select name="pilotos" class="selecPilot">
+            <option>Piloto</option>
+            {{#each ../pilotos}}
+            <option value="{{@index}}">{{ this }}</option>
+             {{/each}}
+          </select>          
+        </th> 
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="checkbox" name="abandono" id=""></td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  
+
+  {{/template}}
+

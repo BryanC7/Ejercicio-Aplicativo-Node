@@ -1,0 +1,64 @@
+{
+    "equipos": [
+        {
+            "escuderia": "Alfa Romeo",
+            "logo": "https://1000marcas.net/wp-content/uploads/2019/12/logo-alfa-romeo.png",
+            "piloto1": "Valtteri Bottas",
+            "piloto2": "Guanyu Zhou"
+        },
+        {
+            "escuderia": "Alpine",
+            "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Alpine_F1_Team_Logo.svg/1024px-Alpine_F1_Team_Logo.svg.png",
+            "piloto1": "Esteban Ocon",
+            "piloto2": "Pierre Gasly"
+        },
+        {
+            "escuderia": "Alpha Tauri",
+            "logo": "https://cdn.worldvectorlogo.com/logos/scuderia-alpha-tauri-1.svg",
+            "piloto1": "Nyck de Vries",
+            "piloto2": "Yuki Tsunoda"
+        },
+        {
+            "escuderia": "Aston Martin",
+            "logo": "https://cdn.worldvectorlogo.com/logos/aston-martin-1.svg",
+            "piloto1": "Lance Stroll",
+            "piloto2": "Fernando Alonso"
+        },
+        {
+            "escuderia": "Ferrari",
+            "logo": "https://cdn.worldvectorlogo.com/logos/ferrari-ufficiale.svg",
+            "piloto1": "Charles Leclerc",
+            "piloto2": "Carlos Sainz"
+        },
+        {
+            "escuderia": "Haas",
+            "logo": "https://cdn.worldvectorlogo.com/logos/haas-f1-team-logo.svg",
+            "piloto1": "Kevin Magnussen",
+            "piloto2": "Nico Hulkenberg"
+        },
+        {
+            "escuderia": "McLaren",
+            "logo": "https://cdn.worldvectorlogo.com/logos/mclaren-f1-1.svg",
+            "piloto1": "Lando Norris",
+            "piloto2": "Oscar Piastri"
+        },
+        {
+            "escuderia": "Mercedes",
+            "logo": "https://cdn.worldvectorlogo.com/logos/mercedes-benz-6.svg",
+            "piloto1": "Lewis Hamilton",
+            "piloto2": "George Russell"
+        },
+        {
+            "escuderia": "Red Bull",
+            "logo": "https://cdn.worldvectorlogo.com/logos/redbullenergydrink.svg",
+            "piloto1": "Max Verstappen",
+            "piloto2": "Checo Pérez"
+        },
+        {
+            "escuderia": "Williams",
+            "logo": "https://cdn.worldvectorlogo.com/logos/williams.svg",
+            "piloto1": "Alex Albon",
+            "piloto2": "Logan Sargeant"
+        }
+    ]
+}  
